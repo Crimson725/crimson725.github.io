@@ -148,10 +148,11 @@ h3 a:hover {
 }
 
 /* The map image has wide margins and a dead zoom control baked in at its lower
-   left. Crop to the land so it spans the text column. Do not lazy-load it: the
-   image is what records the visit. */
+   left. Crop to the land. Do not lazy-load it: the image is what records the
+   visit. */
 #visitors a {
   display: block;
+  max-width: 20rem;
   overflow: hidden;
 }
 
