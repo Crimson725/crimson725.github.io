@@ -13,11 +13,6 @@
     --accent: #ff9aa8;
     --paper: #171415;
   }
-
-  /* The portrait has a white studio background. */
-  header img {
-    filter: brightness(0.85);
-  }
 }
 
 body {
@@ -53,18 +48,6 @@ p {
 
 /* Identity */
 
-header {
-  display: flow-root;
-}
-
-header img {
-  float: right;
-  width: clamp(5.5rem, 22vw, 8rem);
-  height: auto;
-  margin: 0.25rem 0 0.75rem 1.75rem;
-  border-radius: 2px;
-}
-
 h1 {
   margin: 0;
   font-size: clamp(2.25rem, 7vw, 3rem);
@@ -87,16 +70,8 @@ h1 span {
   font-size: 1.1875rem;
 }
 
-/* Narrow: the bio runs full width under the photo. Wider: it keeps a clean edge beside it. */
 .bio {
-  clear: right;
-}
-
-@media (min-width: 34rem) {
-  .bio {
-    clear: none;
-    display: flow-root;
-  }
+  max-width: 34rem;
 }
 
 .links {
