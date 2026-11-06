@@ -147,7 +147,34 @@ h3 a:hover {
   }
 }
 
+/* The map image has wide margins and a dead zoom control baked in at its lower
+   left. Crop to the land so it spans the text column. Do not lazy-load it: the
+   image is what records the visit. */
+#visitors a {
+  display: block;
+  overflow: hidden;
+}
+
+#visitors img {
+  display: block;
+  width: 120.5%;
+  max-width: none;
+  height: auto;
+  margin: -5.2% 0 -4.9% -10.2%;
+}
+
+footer {
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
 @media print {
+  #visitors,
+  footer {
+    display: none;
+  }
+
   :root {
     --ink: #000;
     --muted: #333;
