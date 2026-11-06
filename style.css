@@ -1,0 +1,204 @@
+:root {
+  color-scheme: light dark;
+  --ink: #1c1a1b;
+  --muted: #625c5e;
+  --accent: #9b1c31;
+  --paper: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece8e9;
+    --muted: #a9a2a4;
+    --accent: #ff9aa8;
+    --paper: #171415;
+  }
+
+  /* The portrait has a white studio background. */
+  header img {
+    filter: brightness(0.85);
+  }
+}
+
+body {
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: clamp(2.5rem, 9vh, 6rem) 1.25rem 5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.0625rem/1.55 Charter, "Bitstream Charter", "Sitka Text", Cambria, "Songti SC", "Noto Serif CJK SC", serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Identity */
+
+header {
+  display: flow-root;
+}
+
+header img {
+  float: right;
+  width: clamp(5.5rem, 22vw, 8rem);
+  height: auto;
+  margin: 0.25rem 0 0.75rem 1.75rem;
+  border-radius: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 7vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 span {
+  color: var(--muted);
+  font-size: 0.55em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.role {
+  margin: 0.4rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 1.1875rem;
+}
+
+/* Narrow: the bio runs full width under the photo. Wider: it keeps a clean edge beside it. */
+.bio {
+  clear: right;
+}
+
+@media (min-width: 34rem) {
+  .bio {
+    clear: none;
+    display: flow-root;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Publications and education share one entry shape. */
+
+h2 {
+  margin: 3.5rem 0 1.25rem;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+
+.entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entries li + li {
+  margin-top: 1.75rem;
+}
+
+.entries p {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.entries b {
+  color: var(--ink);
+}
+
+h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+h3 a:hover {
+  text-decoration: underline;
+}
+
+.year {
+  display: block;
+  margin-bottom: 0.125rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* With room to spare, years hang in the margin and the text keeps one left edge. */
+@media (min-width: 54rem) {
+  .entries li {
+    position: relative;
+  }
+
+  .year {
+    position: absolute;
+    top: 0.15rem;
+    left: -4.25rem;
+    margin: 0;
+  }
+}
+
+@media print {
+  :root {
+    --ink: #000;
+    --muted: #333;
+    --accent: #000;
+    --paper: #fff;
+  }
+
+  html {
+    font-size: 81.25%;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  h2 {
+    margin-top: 2rem;
+    break-after: avoid;
+  }
+
+  .entries li {
+    break-inside: avoid;
+  }
+
+  .entries li + li {
+    margin-top: 1.25rem;
+  }
+}
